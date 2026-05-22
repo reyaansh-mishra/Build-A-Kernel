@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "**/build": true,
+        "**/.cache": true,
+        "**/.git": true,
+        "**/Makefile": true,
+        "**/.gitignore": true,
+        "**/*.o": true,
+        "**/*.a": true,
+        "**/.clang*": true,
+    },
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion=iwyu"
+    ],
+    "editor.formatOnSave": true,
+    "cmake.useCMakePresets": "always",
+    "cmake.configureOnOpen": false,
+    "cmake.generator": "Ninja"
+}
