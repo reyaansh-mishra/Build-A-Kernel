@@ -1,6 +1,7 @@
 #pragma once
-
-#include "vga.hpp"
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 
 namespace terminal {
     inline size_t row;

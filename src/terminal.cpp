@@ -1,4 +1,5 @@
 #include "../Includes/terminal.hpp"
+#include "../Includes/vga.hpp"
 
 size_t inline terminal::string_length(const char *string) {
     size_t length = 0;
