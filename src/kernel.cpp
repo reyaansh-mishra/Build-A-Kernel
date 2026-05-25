@@ -3,4 +3,5 @@
 extern "C" void kernel_initialize() {
     terminal::initialize();
     terminal::write_string("Hello World!\n");
+    terminal::write_string("New Line!\n");
 };

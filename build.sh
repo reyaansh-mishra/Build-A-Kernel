@@ -13,4 +13,4 @@ ld.lld -m elf_i386 -T src/boot/arch/x86/linker.ld -o build_dir/kernel.elf build_
 cp -rv  build_dir/kernel.elf iso/boot/kernel
 grub-mkrescue -o kernel.iso iso
 
-qemu-system-i386 -d int,cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s -S
+qemu-system-i386 -d int,cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s

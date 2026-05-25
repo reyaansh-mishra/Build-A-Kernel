@@ -31,6 +31,13 @@ void terminal::put_entry(char character, uint8_t colour, size_t x, size_t y) {
 };
 
 void terminal::put_char(char character) {
+
+    if (character == '\n') {
+        terminal::column = 0;
+        terminal::row += 1;
+        return;
+    };
+
     put_entry(character, terminal::colour, terminal::column, terminal::row);
 
     if (++terminal::column == vga::WIDTH) {
