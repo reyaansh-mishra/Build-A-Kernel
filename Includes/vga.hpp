@@ -7,8 +7,8 @@
 /* VGA Fuckery */
 
 namespace vga {
-    inline size_t WIDTH = 80;
-    inline size_t HEIGHT = 25;
+    inline constexpr size_t WIDTH = 80;
+    inline constexpr size_t HEIGHT = 25;
     inline uintptr_t MEMORY = 0xB8000;
 
     enum vga_colour {

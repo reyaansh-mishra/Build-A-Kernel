@@ -32,6 +32,11 @@ void terminal::put_entry(char character, uint8_t colour, size_t x, size_t y) {
 
 void terminal::put_char(char character) {
 
+    if (terminal::row >= vga::HEIGHT) {
+        terminal::row = 0;
+        terminal::column = 0;
+    }
+
     if (character == '\n') {
         terminal::column = 0;
         terminal::row += 1;
@@ -58,3 +63,7 @@ void terminal::write(const char *string, size_t size) {
 void terminal::write_string(const char *string) {
     terminal::write(string, terminal::string_length(string));
 };
+
+static terminal term;
+
+void print(const char *string) { term.write_string(string); };
