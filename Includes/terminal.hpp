@@ -8,7 +8,7 @@
 namespace terminal {
 
     inline uint8_t colour;
-    inline uint16_t *buffer = reinterpret_cast<uint16_t *>(0xB8000);
+    volatile inline uint16_t *buffer = reinterpret_cast<uint16_t *>(0xB8000);
     inline size_t row;
     inline size_t column;
     inline const char *write_buffer[vga::HEIGHT];
@@ -25,5 +25,5 @@ namespace terminal {
 
 }; // namespace terminal
 
-void print(const char *string);
+void print(const char *string, uint8_t sel_colour = vga::VGA_COLOUR_WHITE);
 size_t inline string_length(const char *string);

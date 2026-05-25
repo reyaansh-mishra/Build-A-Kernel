@@ -71,7 +71,9 @@ void terminal::scroll_buffer_down() {
     write_buffer[vga::HEIGHT - 1] = nullptr;
 };
 
-void print(const char *string) {
+void print(const char *string, uint8_t sel_colour) {
+
+    terminal::set_colour(sel_colour);
 
     if (terminal::row >= vga::HEIGHT - 1) {
         // re-render whole buffer
@@ -89,4 +91,6 @@ void print(const char *string) {
     terminal::write_buffer[terminal::row] = string;
     terminal::write_string(string);
     terminal::write_string("\n");
+
+    terminal::set_colour(vga::VGA_COLOUR_WHITE);
 };
