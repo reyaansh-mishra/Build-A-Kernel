@@ -12,6 +12,7 @@ namespace terminal {
     inline size_t row;
     inline size_t column;
     inline const char *write_buffer[vga::HEIGHT];
+    inline size_t iterator = 0;
 
     void set_colour(uint8_t colour);
     void put_entry(char character, uint8_t colour, size_t x, size_t y);
@@ -20,6 +21,7 @@ namespace terminal {
 
     void write_string(const char *string);
     void initialize();
+    void scroll_buffer_down();
 
 }; // namespace terminal
 

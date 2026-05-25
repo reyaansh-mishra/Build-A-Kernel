@@ -2,8 +2,8 @@
 
 extern "C" void kernel_initialize() {
     terminal::initialize();
-    terminal::write_string("Hello World!\n");
-    print("New Line!\n");
+    print("Hello World!");
+    print("New Line!");
 
     print("HELP MEE");
     print("HELP MEE YES");
@@ -23,10 +23,10 @@ extern "C" void kernel_initialize() {
     print("HELP MEE YES No NO");
     print("HELP MEE YES No NO Yes");
     print("HELP MEE YES No NO Yes YAAY");
-    print("HELP MEE YES No NO Yes YAAY NAY");
-    print("HELP MEE YES No NO Yes YAAY NAY 1");
-    print("HELP MEE YES No NO Yes YAAY NAY 1 2");
-    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 ");
-    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4");
-    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4 5");
+    print("HELP MEE");
+    print("HELP MEE YES");
+    print("HELP MEE YES No");
+    print("HELP MEE YES No");
+    print("HELP MEE YES No");
+    print("HELP MEE YES No");
 };

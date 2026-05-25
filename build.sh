@@ -15,4 +15,4 @@ cp -v build_dir/kernel.elf iso/boot/kernel &&
 grub-mkrescue -o kernel.iso iso &&
 
 
-qemu-system-i386 -d int,cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s
+qemu-system-i386 -d cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s

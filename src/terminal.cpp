@@ -62,25 +62,31 @@ void terminal::write(const char *string, size_t size) {
 
 void terminal::write_string(const char *string) { terminal::write(string, string_length(string)); };
 
+void terminal::scroll_buffer_down() {
+    write_buffer[1] = nullptr;
+
+    for (size_t i = 0; i < vga::HEIGHT - 1; i++) {
+        write_buffer[i] = write_buffer[i + 1];
+    }
+    write_buffer[vga::HEIGHT - 1] = nullptr;
+};
+
 void print(const char *string) {
 
-    if (terminal::row == vga::HEIGHT) {
-        for (size_t i = 0; i < vga::HEIGHT; i++) {
-            terminal::write_buffer[i] = terminal::write_buffer[i + 1];
-        }
-
-        terminal::row = vga::HEIGHT - 1;
-
+    if (terminal::row >= vga::HEIGHT - 1) {
         // re-render whole buffer
         terminal::initialize();
-        for (size_t i = 0; i < terminal::row; i++) {
-            if (terminal::write_buffer[i])
-                terminal::write_string(terminal::write_buffer[i]);
+
+        terminal::scroll_buffer_down();
+        for (terminal::iterator = 0; terminal::iterator < vga::HEIGHT; terminal::iterator++) {
+            if (terminal::write_buffer[terminal::iterator]) {
+                terminal::write_string(terminal::write_buffer[terminal::iterator]);
+                terminal::write_string("\n");
+            }
         }
     };
 
-    terminal::write_string("\n");
-
     terminal::write_buffer[terminal::row] = string;
     terminal::write_string(string);
+    terminal::write_string("\n");
 };
