@@ -1,14 +1,32 @@
 #include "../Includes/terminal.hpp"
 
 extern "C" void kernel_initialize() {
-    terminal terminal;
-    terminal.initialize();
-    terminal.write_string("Hello World!\n");
-    terminal.write_string("New Line!\n");
+    terminal::initialize();
+    terminal::write_string("Hello World!\n");
+    print("New Line!\n");
 
-    int i = 1;
-    while (i < 24) {
-        terminal.write_string("New Line!\n");
-        i++;
-    }
+    print("HELP MEE");
+    print("HELP MEE YES");
+    print("HELP MEE YES No");
+    print("HELP MEE YES No NO");
+    print("HELP MEE YES No NO Yes");
+    print("HELP MEE YES No NO Yes YAAY");
+    print("HELP MEE YES No NO Yes YAAY NAY");
+    print("HELP MEE YES No NO Yes YAAY NAY 1");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 ");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4 5");
+    print("HELP MEE");
+    print("HELP MEE YES");
+    print("HELP MEE YES No");
+    print("HELP MEE YES No NO");
+    print("HELP MEE YES No NO Yes");
+    print("HELP MEE YES No NO Yes YAAY");
+    print("HELP MEE YES No NO Yes YAAY NAY");
+    print("HELP MEE YES No NO Yes YAAY NAY 1");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 ");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4");
+    print("HELP MEE YES No NO Yes YAAY NAY 1 2 3 4 5");
 };

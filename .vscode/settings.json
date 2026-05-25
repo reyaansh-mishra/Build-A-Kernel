@@ -13,7 +13,7 @@
         "--background-index",
         "--clang-tidy",
         "--completion-style=detailed",
-        "--header-insertion=iwyu"
+        "--header-insertion=none"
     ],
     "editor.formatOnSave": true,
     "cmake.useCMakePresets": "always",

@@ -1,7 +1,7 @@
 #include "../Includes/terminal.hpp"
 #include "../Includes/vga.hpp"
 
-size_t inline terminal::string_length(const char *string) {
+size_t inline string_length(const char *string) {
     size_t length = 0;
     while (string[length]) {
         length++;
@@ -32,10 +32,10 @@ void terminal::put_entry(char character, uint8_t colour, size_t x, size_t y) {
 
 void terminal::put_char(char character) {
 
-    if (terminal::row >= vga::HEIGHT) {
-        terminal::row = 0;
-        terminal::column = 0;
-    }
+    // if (terminal::row >= vga::HEIGHT) {
+    //     terminal::row = 0;
+    //     terminal::column = 0;
+    // }
 
     if (character == '\n') {
         terminal::column = 0;
@@ -60,10 +60,27 @@ void terminal::write(const char *string, size_t size) {
     };
 };
 
-void terminal::write_string(const char *string) {
-    terminal::write(string, terminal::string_length(string));
+void terminal::write_string(const char *string) { terminal::write(string, string_length(string)); };
+
+void print(const char *string) {
+
+    if (terminal::row == vga::HEIGHT) {
+        for (size_t i = 0; i < vga::HEIGHT; i++) {
+            terminal::write_buffer[i] = terminal::write_buffer[i + 1];
+        }
+
+        terminal::row = vga::HEIGHT - 1;
+
+        // re-render whole buffer
+        terminal::initialize();
+        for (size_t i = 0; i < terminal::row; i++) {
+            if (terminal::write_buffer[i])
+                terminal::write_string(terminal::write_buffer[i]);
+        }
+    };
+
+    terminal::write_string("\n");
+
+    terminal::write_buffer[terminal::row] = string;
+    terminal::write_string(string);
 };
-
-static terminal term;
-
-void print(const char *string) { term.write_string(string); };
