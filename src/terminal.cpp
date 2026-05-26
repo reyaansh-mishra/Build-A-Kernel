@@ -1,5 +1,6 @@
 #include "../Includes/terminal.hpp"
 #include "../Includes/vga.hpp"
+#include "global_includes.hpp"
 
 size_t string_length(const char *string) {
     size_t length = 0;
@@ -94,3 +95,46 @@ void print(const char *string, uint8_t sel_colour) {
 
     terminal::set_colour(vga::VGA_COLOUR_WHITE);
 };
+
+
+void print_hex(uint32_t value) {
+    
+    static const char hex_digits[] = "0123456789ABCDEF";
+    
+    // Print the standard hex prefix
+    print("0x");
+    
+    // A 32-bit integer has 8 hex digits (4 bits each)
+    // We loop backwards to print the most significant digit first
+    for (int i = 7; i >= 0; i--) {
+        // Shift the target nibble to the bottom 4 bits
+        uint32_t nibble = (value >> (i * 4)) & 0xF;
+        
+        // Look up the character and print it
+        terminal::put_char(hex_digits[nibble]);
+    }
+}
+
+void print(uint32_t value) {
+
+    if (value == 0) {
+        terminal::put_char('0');
+        return;
+    }
+
+    char buffer[11]; // Max length of a 32-bit int is 10 digits + null terminator
+    int i = 0;
+
+    // Extract digits from right to left
+    while (value > 0) {
+        buffer[i++] = '0' + (value % 10);
+        value /= 10;
+    }
+
+    // The digits are backward in the buffer, so print them in reverse order
+    for (int j = i - 1; j >= 0; j--) {
+        terminal::put_char(buffer[j]);
+    }
+
+    terminal::write_string("\n");
+}

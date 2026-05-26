@@ -45,7 +45,7 @@ target_link_options(kernel PRIVATE -m elf_i386 -T ${CMAKE_SOURCE_DIR}/src/boot/a
 add_custom_target(run
     COMMAND cp ${CMAKE_BINARY_DIR}/kernel iso/boot/kernel
     COMMAND grub-mkrescue -o kernel.iso iso
-    COMMAND qemu-system-i386 -d cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s
+    COMMAND qemu-system-i386 -d cpu_reset -no-reboot -no-shutdown -cdrom kernel.iso -s -serial stdio
     DEPENDS kernel
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )

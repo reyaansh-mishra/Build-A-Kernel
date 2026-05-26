@@ -18,7 +18,7 @@ void mmgr::paging::setup() {
     page_directory[0].present = 1;
     page_directory[0].rw = 1;
 
-    print(reinterpret_cast<char*>(sizeof(mmgr::paging::TableEntry)));
+    print(sizeof(mmgr::paging::TableEntry));
 
     enable(); // enable() is WIP
 };

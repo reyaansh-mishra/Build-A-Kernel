@@ -26,4 +26,6 @@ namespace terminal {
 }; // namespace terminal
 
 void print(const char *string, uint8_t sel_colour = vga::VGA_COLOUR_WHITE);
+void print(uint32_t value);
+void print_hex(uint32_t value);
 size_t string_length(const char *string);
