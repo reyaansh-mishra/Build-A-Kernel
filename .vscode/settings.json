@@ -8,10 +8,13 @@
         "**/*.o": true,
         "**/*.a": true,
         "**/.clang*": true,
+        "**/iso*": true,
+        "**/Images*": true,
+        "**/build_dir*": true,
+        "**/kernel.iso*": true,
     },
     "clangd.arguments": [
         "--background-index",
-        "--clang-tidy",
         "--completion-style=detailed",
         "--header-insertion=never"
     ],

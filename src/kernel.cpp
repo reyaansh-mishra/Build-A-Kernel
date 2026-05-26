@@ -1,16 +1,16 @@
 #include "../Includes/terminal.hpp"
+#include "mmgr/paging.hpp"
 
 extern "C" void kernel_initialize() {
     terminal::initialize();
     print("Hello World!", vga::VGA_COLOUR_RED);
-    print("New Line!");
 
-    print("HELP MEE");
-    print("HELP MEE YES");
-    print("HELP MEE YES No");
-    print("HELP MEE YES No NO");
-    print("HELP MEE YES No NO Yes");
-    print("HELP MEE YES No NO Yes YAAY");
-    print("HELP MEE YES No NO Yes YAAY NAY");
-    print("HELP MEE YES No NO Yes YAAY NAY 1");
+    mmgr::paging::setup();
+
+
+    // Paging Test - Keeping for the heck of it  
+    // Volatile prevents the compiler from optimizing this away.
+    // We are trying to write to 0x00500000 (5MB), which is NOT mapped!
+    // volatile uint32_t* broken_pointer = (uint32_t*)0x00500000;
+    // *broken_pointer = 0xDEADBEEF;
 };

@@ -16,7 +16,7 @@ SECTIONS
 	   address, in order to give the loader freedom in selecting a span of
 	   memory which is verified to be available by the firmware, in order to
 	   work around this issue. This does not use that feature, so 2M was
-	   chosen as a safer option than the traditional 1M. */
+	   chosen as a safer option than the traditional 1M. But ill go 1M anyways. */
 	. = 1M;
 
 	/* First put the multiboot header, as it is required to be put very early

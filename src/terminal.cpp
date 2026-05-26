@@ -1,7 +1,7 @@
 #include "../Includes/terminal.hpp"
 #include "../Includes/vga.hpp"
 
-size_t inline string_length(const char *string) {
+size_t string_length(const char *string) {
     size_t length = 0;
     while (string[length]) {
         length++;
