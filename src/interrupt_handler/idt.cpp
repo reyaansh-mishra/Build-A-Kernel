@@ -1,4 +1,4 @@
-#include "idt.hpp"
+#include "interrupt_handler/idt.hpp"
 #include "terminal.hpp"
 
 idt::GateEntry idt::idt_table[256] __attribute__((aligned(16)));

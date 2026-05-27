@@ -47,6 +47,8 @@ SECTIONS
         *(.bss)
     }
 
+    kernel_mem_end = .;
+
     . = ALIGN(16);
     stack_bottom = .;
     . += 16384;

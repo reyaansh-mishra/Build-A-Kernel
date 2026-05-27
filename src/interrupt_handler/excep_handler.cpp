@@ -1,4 +1,4 @@
-#include "exception_handler.hpp"
+#include "interrupt_handler/exception_handler.hpp"
 #include "terminal.hpp"
 
 extern "C" void raise_exception(uint32_t esp) {
