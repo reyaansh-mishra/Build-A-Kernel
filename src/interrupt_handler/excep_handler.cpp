@@ -5,7 +5,7 @@ extern "C" void raise_exception(uint32_t esp) {
 
     terminal::initialize();
 
-    const char* seperator = "\n\n=========================================================================\n";
+    const char* seperator = "\n\n===============================================================================\n";
 
     excep_handler::registers* regs = reinterpret_cast<excep_handler::registers*>(esp); 
 
