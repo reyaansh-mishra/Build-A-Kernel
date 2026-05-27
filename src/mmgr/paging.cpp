@@ -1,5 +1,4 @@
 #include "mmgr/paging.hpp"
-#include "terminal.hpp"
 
 void mmgr::paging::setup() {
 
@@ -17,8 +16,6 @@ void mmgr::paging::setup() {
     page_directory[0].addr = (uint32_t)page_table >> 12;
     page_directory[0].present = 1;
     page_directory[0].rw = 1;
-
-    print(sizeof(mmgr::paging::TableEntry));
 
     enable(); // enable() is WIP
 };

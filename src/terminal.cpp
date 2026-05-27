@@ -91,7 +91,6 @@ void print(const char *string, uint8_t sel_colour) {
 
     terminal::write_buffer[terminal::row] = string;
     terminal::write_string(string);
-    terminal::write_string("\n");
 
     terminal::set_colour(vga::VGA_COLOUR_WHITE);
 };
@@ -135,6 +134,4 @@ void print(uint32_t value) {
     for (int j = i - 1; j >= 0; j--) {
         terminal::put_char(buffer[j]);
     }
-
-    terminal::write_string("\n");
 }
